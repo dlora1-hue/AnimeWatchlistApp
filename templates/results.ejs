@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Search Results</title>
+        <link rel="stylesheet" href="/style3.css">
+    </head>
+    <body>
+        <h1>Search Results</h1>
+        <div class="toplinks">
+            <a href="/">Back to Search</a>
+            <a href="/list">View Watchlist</a>
+        </div>
+        <div class="animegrid">
+            <% results.forEach(anime => { %>
+                <div class="animecard">
+                    <div class="animeinfo">
+                        <h2><%= anime.title %></h2>
+                        <% if (anime.images && anime.images.jpg) { %>
+                            <img class="animeImage" src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>">
+                        <% } %>
+                        <p><strong>Score:</strong> <%= anime.score %></p>
+                        <p><strong>Episodes:</strong> <%= anime.episodes %></p>
+                        <p><strong>Status:</strong> <%= anime.status %></p>
+                        <form class="addForm" action="/add" method="post">
+                            <input type="hidden" name="malid" value="<%= anime.mal_id %>">
+                            <input type="hidden" name="title" value="<%= anime.title %>">
+                            <input type="hidden" name="imageURL" value="<%= anime.images.jpg.image_url %>">
+                            <input type="hidden" name="score" value="<%= anime.score %>">
+                            <input type="hidden" name="episodes" value="<%= anime.episodes %>">
+                            <input type="hidden" name="status" value="<%= anime.status %>">
+                            <button type="submit">Add to Watchlist</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <script>
+            const forms = document.querySelectorAll(".addForm");
+
+            forms.forEach(form => {
+                form.addEventListener("submit", async event => {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+                    const response = await fetch("/add", {
+                        method: "POST",
+                        body: new URLSearchParams(formData)
+                    });
+                    const result = await response.json();
+                    const button = form.querySelector("button");
+                    button.textContent = "Added";
+                    button.disabled = true;
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+body {
+    background-color: #080808;
+    color: lightblue;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: lightblue;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+}
+
+.container {
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+}
+
+.container label {
+    color: white;
+    font-size: 1rem;
+}
+
+.container input {
+    font-size: 1rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: none;
+    width: 250px;
+}
+
+button, #watchlistlink {
+    background-color: #9dccf3;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 120px;
+    box-sizing: border-box;
+}
+
+button:hover, #watchlistlink:hover {
+    background-color: plum;
+    text-decoration: none;
+}
+
+.container p {
+    margin-top: 1.5rem;
+}
+
+.container2 {
+    margin-top: 50px;
+}
+
+.recommendationgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.recommendationcard {
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.recommendationcard img {
+    width: 140px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.recommendationcard h3 {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.recommendationcard p {
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .container form {
+        flex-direction: column;
+    }
+
+    .recommendationGrid {
+        grid-template-columns: 1fr;
+    }
+}

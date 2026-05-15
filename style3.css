@@ -1,0 +1,82 @@
+body {
+    background-color: #080808;
+    color: lightblue;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.toplinks {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.toplinks a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.toplinks a:hover {
+    text-decoration: underline;
+}
+
+.animegrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.animecard {
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.animeinfo h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.animeimage {
+    width: 160px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: lightskyblue;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: plum;
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+@media screen and (max-width: 1000px) {
+    .animegrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .animegrid {
+        grid-template-columns: 1fr;
+    }
+}

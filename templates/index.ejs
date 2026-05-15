@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Want to Add to Your WatchList?</h1>
+        <form action="/search" method="post">
+            <label for="searchTerm">Search for an anime:</label>
+            <input type="text" id="searchTerm" name="searchTerm" required>
+            <button type="submit">Search</button>
+        </form>
+        <p><a href="/list" id="watchlistlink">View Watchlist</a></p>
+    </div>
+    <div class="container2">
+        <h2>Top Anime Recommendations</h2>
+        <div class="recommendationgrid">
+            <% recommendations.forEach(anime => { %>
+                <div class="recommendationcard">
+                    <h3><%= anime.title %></h3>
+                    <% if (anime.images && anime.images.jpg) { %>
+                    <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>">
+                    <% } %>
+                    <p><strong>Score:</strong> <%= anime.score %></p>
+                    <p><strong>Episodes:</strong> <%= anime.episodes %></p>
+                    <p><strong>Status:</strong> <%= anime.status %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
